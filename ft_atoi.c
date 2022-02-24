@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpetrosy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 19:14:44 by gpetrosy          #+#    #+#             */
-/*   Updated: 2022/02/19 19:15:07 by gpetrosy         ###   ########.fr       */
+/*   Created: 2022/02/19 15:51:32 by gpetrosy          #+#    #+#             */
+/*   Updated: 2022/02/19 16:24:05 by gpetrosy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h> 
 
-int	ft_strlen(char *str)
+int	ft_atoi(char *str)
 {
-	int	a;
+	int	g;
+	int	i;
+	int	t;
 
-	a = 0;
-	while (str[a] != '\0')
-	{
-		a++;
-	}
-	return (a);
+	t = 0;
+	i = 0;
+	g = 1;
+	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+		i++;
+	while (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			g = -g;
+	while (str[i] >= '0' && str[i] <= '9')
+		t = t * 10 + (str[i++] - 48);
+	return (t * g);
 }

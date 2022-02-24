@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpetrosy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 12:56:02 by gpetrosy          #+#    #+#             */
-/*   Updated: 2022/02/15 18:09:12 by gpetrosy         ###   ########.fr       */
+/*   Created: 2022/02/19 15:30:12 by gpetrosy          #+#    #+#             */
+/*   Updated: 2022/02/19 15:42:46 by gpetrosy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	ft_putstr(char *str)
 {
-	unsigned int	l;
+	int	a;
 
-	l = 0;
-	while (str[l])
-		l++;
-	write(1, str, l);
+	a = -1;
+	while (str[++a] != '\0')
+	{
+		write(1, &str[a], 1);
+	}
 }
